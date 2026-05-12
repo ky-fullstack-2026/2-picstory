@@ -30,10 +30,9 @@ public class KakaoAuthService {
     public String getAuthorizationUrl(){
         return UriComponentsBuilder
                 .fromUriString("https://kauth.kakao.com/oauth/authorize")
-                .queryParam("client_id",kakaoProperties.getClientId())
-                .queryParam("redirect_uri",kakaoProperties.getRedirectUri())
-                .queryParam("response_uri",kakaoProperties.getRedirectUri())
-                .queryParam("response_type","code")
+                .queryParam("client_id", kakaoProperties.getClientId())
+                .queryParam("redirect_uri", kakaoProperties.getRedirectUri())
+                .queryParam("response_type", "code")
                 .build()
                 .toString();
     }
