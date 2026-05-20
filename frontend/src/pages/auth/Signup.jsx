@@ -76,6 +76,9 @@ const Signup = () => {
       setIsLoading(false)
     }
   }
+  const handleKakaoLogin = () => {
+    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/kakao`
+  }
 
 
   const handleBack = () => {
@@ -104,28 +107,28 @@ const Signup = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="이름을 입력하세요"
-              />
+            />
             <Input
               type="email"
               name="email"
               onChange={handleChange}
               value={form.email}
               placeholder="이메일을 입력하세요"
-              />
+            />
             <Input
               name="password"
               value={form.password}
               onChange={handleChange}
               type="password"
               placeholder="비밀번호를 입력하세요"
-              />
+            />
             <Input
               name="passwordConfirm"
               onChange={handleChange}
               value={form.passwordConfirm}
               type="password"
               placeholder="비밀번호를 다시 입력하세요"
-              />
+            />
             <Input
               name="phone"
               onChange={handleChange}
@@ -136,16 +139,17 @@ const Signup = () => {
           </div>
           {error && <p className='error-text'> {error}</p>}
           <div className="auth-btn-wrap">
-            <Button 
-            text={isLoading? "가입 중...":"회원가입"} 
-            type="submit" 
-            className="primary" />
+            <Button
+              text={isLoading ? "가입 중..." : "회원가입"}
+              type="submit"
+              className="primary" />
           </div>
         </form>
         <div className="auth-now">
           <span>이미 계정이 있으신가요?</span>
           <Link to="/login">
             <Button text="로그인하기" icons />
+            <Button text="카카오로그인" icons='kakao' className='kakao' onClick={handleKakaoLogin} />
           </Link>
         </div>
       </div>
